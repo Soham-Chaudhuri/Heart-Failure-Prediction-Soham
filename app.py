@@ -117,8 +117,8 @@ model_name=st.selectbox(
     ('Default','Logistic Regression','Standard Logistic Regression','SVM',
     'Decision Tree','Random Forest','XGBoost','Gradient Boost')
 )
-st.subheader('Enter Details Of The Patient:-')
 if(model_name!='Default'):
+    st.subheader('Enter Details Of The Patient:-')
     age = st.slider('Age', 0, 130, 0)
     anaemia = st.slider('Anaemia if yes->1', 0, 1, 0)
     creatinine_phosphokinase = st.slider('Creatinine Phosphokinase', 20.0, 8000.0, 20.0)
