@@ -182,14 +182,9 @@ test_data = np.array([[age,anaemia,creatinine_phosphokinase,diabetes,ejection_fr
     #     gbdt.fit(x_train, y_train) 
     #     predict = gbdt.predict(test_data) 
     
-xgb1 = XGBClassifier(colsample_bytree= 1.0,
-    learning_rate = 0.1,
-    max_depth = 4,
-    n_estimators= 400,
-    subsample= 1.0)  
-eval_set  = [(x_test, y_test)]
-xgb1.fit(x_train, y_train,early_stopping_rounds=10, eval_metric="logloss",eval_set=eval_set, verbose=True)
-predict = xgb1.predict(test_data)
+gbdt = GradientBoostingClassifier(n_estimators=200, learning_rate=0.1,max_depth=1,random_state=0) 
+gbdt.fit(x_train, y_train) 
+predict = gbdt.predict(test_data) 
     
 if st.button('Predict'):
     st.subheader("Prediction :-")
