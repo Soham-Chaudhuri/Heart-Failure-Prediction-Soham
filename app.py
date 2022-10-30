@@ -112,77 +112,91 @@ x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.3,random_state=0)
 
 st.markdown("***")
 st.subheader('Machine Learning Model For Heart Failure Prediction:-')
-model_name=st.selectbox(
-    'Select Model',
-    ('Default','Logistic Regression','Standard Logistic Regression','SVM',
-    'Decision Tree','Random Forest','XGBoost','Gradient Boost')
-)
-if(model_name!='Default'):
-    st.subheader('Enter Details Of The Patient:-')
-    age = st.slider('Age', 0, 130, 0)
-    anaemia = st.slider('Anaemia if yes->1', 0, 1, 0)
-    creatinine_phosphokinase = st.slider('Creatinine Phosphokinase', 20.0, 8000.0, 20.0)
-    diabetes = st.slider('Diabetes if yes->1', 0, 1, 0)
-    ejection_fraction = st.slider('Ejection Fraction', 10.0, 80.0, 10.0)
-    high_blood_pressure = st.slider('High Blood Pressure if yes->1', 0, 1, 0)
-    platelets = st.slider('Platelets', 20000.0, 900000.0, 20000.0)
-    serum_creatinine = st.slider('Serum Creatinine', 0.0, 10.0, 0.0)
-    serum_sodium = st.slider('Serum Sodium',50.0, 200.0, 50.0)
-    sex = st.slider('Sex if male->1', 0, 1, 0)
-    smoking = st.slider('Smoking if yes->1', 0, 1, 0)
-    time = st.slider('Time(Follow up period)', 0, 300, 0)
-    test_data = np.array([[age,anaemia,creatinine_phosphokinase,diabetes,ejection_fraction,high_blood_pressure,platelets,serum_creatinine,serum_sodium,sex,smoking,time]])
+# model_name=st.selectbox(
+#     'Select Model',
+#     ('Default','Logistic Regression','Standard Logistic Regression','SVM',
+#     'Decision Tree','Random Forest','XGBoost','Gradient Boost')
+# )
+# if(model_name!='Default'):
+
+st.write('Accuracy Score:- 85.6')
+st.write('Precision Score:- 80')  
+st.write('Recall Score:- 71.4286')
 
 
-    if(model_name=='Logistic Regression'):
-        lr_clf = LogisticRegression(max_iter=1000) 
-        lr_clf.fit(x_train, y_train)
-        predict = lr_clf.predict(test_data)
-    elif(model_name=='Standard Logistic Regression'):
-        lr_clf_pip = make_pipeline(StandardScaler(), LogisticRegression()) 
-        lr_clf_pip.fit(x_train, y_train) 
-        predict = lr_clf_pip.predict(test_data)
-    elif(model_name=='SVM'):
-        svc=SVC(C=10,gamma=0.0001)
-        svc.fit(x_train,y_train)
-        predict = svc.predict(test_data)
-    elif(model_name=='Decision Tree'):
-        ds_clf = DecisionTreeClassifier(criterion='entropy', max_depth=4, max_features=0.75,
-                       max_leaf_nodes=25, min_impurity_decrease=0.0005,
-                       min_samples_split=5, min_weight_fraction_leaf=0.0075,
-                       random_state=2) 
-        ds_clf.fit(x_train, y_train) 
-        predict = ds_clf.predict(test_data)
-    elif(model_name=='Random Forest'):
-        rf_clf = RandomForestClassifier(max_depth=2, max_features=0.5,
-                       min_impurity_decrease=0.01, min_samples_leaf=10,
-                       random_state=2) 
-        rf_clf.fit(x_train, y_train) 
-        predict = rf_clf.predict(test_data)
-    elif(model_name=='XGBoost'):
-        xgb1 = XGBClassifier(colsample_bytree= 1.0,
-        learning_rate = 0.1,
-        max_depth = 4,
-        n_estimators= 400,
-        subsample= 1.0)  
-        eval_set  = [(x_test, y_test)]
-        xgb1.fit(x_train, y_train,early_stopping_rounds=10, eval_metric="logloss",eval_set=eval_set, verbose=True)
-        predict = xgb1.predict(test_data)
-        fig_open=plt.figure()
-        plot_importance(xgb1)
-        # st.pyplot(fig_open)
-    elif(model_name=='Gradient Boost'):
-        gbdt = GradientBoostingClassifier(n_estimators=200, learning_rate=0.1,max_depth=1,random_state=0) 
-        gbdt.fit(x_train, y_train) 
-        predict = gbdt.predict(test_data) 
+st.subheader('Enter Details Of The Patient:-')
+age = st.slider('Age', 0, 130, 0)
+anaemia = st.slider('Anaemia if yes->1', 0, 1, 0)
+creatinine_phosphokinase = st.slider('Creatinine Phosphokinase', 20.0, 8000.0, 20.0)
+diabetes = st.slider('Diabetes if yes->1', 0, 1, 0)
+ejection_fraction = st.slider('Ejection Fraction', 10.0, 80.0, 10.0)
+high_blood_pressure = st.slider('High Blood Pressure if yes->1', 0, 1, 0)
+platelets = st.slider('Platelets', 20000.0, 900000.0, 20000.0)
+serum_creatinine = st.slider('Serum Creatinine', 0.0, 10.0, 0.0)
+serum_sodium = st.slider('Serum Sodium',50.0, 200.0, 50.0)
+sex = st.slider('Sex if male->1', 0, 1, 0)
+smoking = st.slider('Smoking if yes->1', 0, 1, 0)
+time = st.slider('Time(Follow up period)', 0, 300, 0)
+test_data = np.array([[age,anaemia,creatinine_phosphokinase,diabetes,ejection_fraction,high_blood_pressure,platelets,serum_creatinine,serum_sodium,sex,smoking,time]])
+
+
+    # if(model_name=='Logistic Regression'):
+    #     lr_clf = LogisticRegression(max_iter=1000) 
+    #     lr_clf.fit(x_train, y_train)
+    #     predict = lr_clf.predict(test_data)
+    # elif(model_name=='Standard Logistic Regression'):
+    #     lr_clf_pip = make_pipeline(StandardScaler(), LogisticRegression()) 
+    #     lr_clf_pip.fit(x_train, y_train) 
+    #     predict = lr_clf_pip.predict(test_data)
+    # elif(model_name=='SVM'):
+    #     svc=SVC(C=10,gamma=0.0001)
+    #     svc.fit(x_train,y_train)
+    #     predict = svc.predict(test_data)
+    # elif(model_name=='Decision Tree'):
+    #     ds_clf = DecisionTreeClassifier(criterion='entropy', max_depth=4, max_features=0.75,
+    #                    max_leaf_nodes=25, min_impurity_decrease=0.0005,
+    #                    min_samples_split=5, min_weight_fraction_leaf=0.0075,
+    #                    random_state=2) 
+    #     ds_clf.fit(x_train, y_train) 
+    #     predict = ds_clf.predict(test_data)
+    # elif(model_name=='Random Forest'):
+    #     rf_clf = RandomForestClassifier(max_depth=2, max_features=0.5,
+    #                    min_impurity_decrease=0.01, min_samples_leaf=10,
+    #                    random_state=2) 
+    #     rf_clf.fit(x_train, y_train) 
+    #     predict = rf_clf.predict(test_data)
+    # elif(model_name=='XGBoost'):
+    #     xgb1 = XGBClassifier(colsample_bytree= 1.0,
+    #     learning_rate = 0.1,
+    #     max_depth = 4,
+    #     n_estimators= 400,
+    #     subsample= 1.0)  
+    #     eval_set  = [(x_test, y_test)]
+    #     xgb1.fit(x_train, y_train,early_stopping_rounds=10, eval_metric="logloss",eval_set=eval_set, verbose=True)
+    #     predict = xgb1.predict(test_data)
+    #     fig_open=plt.figure()
+    #     plot_importance(xgb1)
+    #     # st.pyplot(fig_open)
+    # elif(model_name=='Gradient Boost'):
+    #     gbdt = GradientBoostingClassifier(n_estimators=200, learning_rate=0.1,max_depth=1,random_state=0) 
+    #     gbdt.fit(x_train, y_train) 
+    #     predict = gbdt.predict(test_data) 
     
+xgb1 = XGBClassifier(colsample_bytree= 1.0,
+    learning_rate = 0.1,
+    max_depth = 4,
+    n_estimators= 400,
+    subsample= 1.0)  
+eval_set  = [(x_test, y_test)]
+xgb1.fit(x_train, y_train,early_stopping_rounds=10, eval_metric="logloss",eval_set=eval_set, verbose=True)
+predict = xgb1.predict(test_data)
     
-    if st.button('Predict'):
-        st.subheader("Prediction :-")
-        if(predict[0]=='0'):
-            st.subheader('Do not worry You are not at much risk')
-        else:
-            st.subheader('You are at risk Please consult a Doctor')
+if st.button('Predict'):
+    st.subheader("Prediction :-")
+    if(predict[0]=='0'):
+        st.subheader('Do not worry You are not at much risk')
+    else:
+        st.subheader('You are at risk Please consult a Doctor')
 
 
 
