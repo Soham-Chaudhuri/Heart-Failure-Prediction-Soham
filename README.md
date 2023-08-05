@@ -2,6 +2,8 @@
 
 This project uses various machine learning models to predict heart failure based on several health factors. It is designed as a web application using the Streamlit library in Python.
 
+[LIVE LINK](https://youtu.be/qsG3wqz_PsI)
+
 ## Project Description
 
 Heart failure is a common event caused by Cardiovascular diseases (CVDs), and they are the leading cause of death globally. This web application uses data such as age, anaemia, creatinine phosphokinase levels, diabetes, ejection fraction, high blood pressure, platelets, serum creatinine, serum sodium, sex, smoking status, and time (follow up period) to predict the likelihood of heart failure in an individual.
