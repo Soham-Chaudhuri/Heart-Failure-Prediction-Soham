@@ -51,5 +51,7 @@ Several machine learning models are used in this project:
 
 The application interface allows users to input their data and then select a machine learning model to make a prediction based on the input data.
 
-
-
+![1](https://github.com/Soham-Chaudhuri/Heart-Failure-Prediction-Soham/assets/94887725/f4e3331a-2d34-43b4-80e4-ecbe6b2a5b04)
+![2](https://github.com/Soham-Chaudhuri/Heart-Failure-Prediction-Soham/assets/94887725/294ecbf3-f591-40d2-9703-f57c4210ea75)
+![3](https://github.com/Soham-Chaudhuri/Heart-Failure-Prediction-Soham/assets/94887725/23d2a82a-dc96-4a09-af31-de2c25ec7f55)
+![8](https://github.com/Soham-Chaudhuri/Heart-Failure-Prediction-Soham/assets/94887725/4982956a-8580-42cc-8245-b83729967957)
